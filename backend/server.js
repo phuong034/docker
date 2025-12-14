@@ -15,8 +15,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // Routes
-app.use("/products", require("./routes/products"));
-app.use("/cart", require("./routes/cart"));
+app.use("/api/products", require("./routes/products"));
+app.use("/api/cart", require("./routes/cart"));
 
 // Health check
 app.get('/api/health', (req, res) => {
