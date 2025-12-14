@@ -1,0 +1,29 @@
+services:
+  - type: web
+    name: node-backend
+    env: node
+    plan: free
+    rootDir: backend
+    buildCommand: npm install
+    startCommand: node server.js
+    autoDeploy: true
+    envVars:
+      - key: DB_HOST
+        fromService:
+          name: mysql
+          type: pserv
+          property: host
+      - key: DB_PORT
+        value: "3306"
+      - key: DB_USER
+        value: "root"
+      - key: DB_PASSWORD
+        value: "123456"
+      - key: DB_NAME
+        value: "shoponline"
+
+  - type: pserv
+    name: mysql
+    env: docker
+    plan: free
+    rootDir: mysql
