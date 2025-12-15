@@ -1,7 +1,7 @@
 services:
   db:
     image: mysql:8
-    container_name: shop_db
+    
     environment:
       MYSQL_ROOT_PASSWORD: 123456
       MYSQL_DATABASE: shoponline
@@ -18,7 +18,7 @@ services:
 
   api:
     build: ./backend
-    container_name: shop_api
+    
     environment:
       PORT: 5000
       DB_HOST: db
@@ -33,7 +33,7 @@ services:
 
   web:
     build: ./frontend
-    container_name: shop_web
+    
     ports:
       - "8080:80"
     depends_on:
